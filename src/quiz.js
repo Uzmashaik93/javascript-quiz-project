@@ -12,7 +12,7 @@ class Quiz {
   }
 
   moveToNextQuestion() {
-    if (this.currentQuestionIndex < this.questions.length - 1) {
+    if (this.currentQuestionIndex < this.questions.length) {
       this.currentQuestionIndex++;
     }
   }
@@ -33,7 +33,7 @@ class Quiz {
   }
 
   hasEnded() {
-    if (this.currentQuestionIndex < this.questions.length) {
+    if (this.currentQuestionIndex < this.questions.length - 1) {
       return false;
     } else if (this.currentQuestionIndex === this.questions.length) {
       return true;
@@ -58,8 +58,6 @@ class Quiz {
   //   });
 
   averageDifficulty() {
-    let counter = 0;
-
     const averageDifficulty = this.questions.reduce((sum, questions) => {
       return sum + questions.difficulty;
     }, 0);
